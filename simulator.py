@@ -3,6 +3,10 @@ import json
 import urllib.request
 import time
 
+import ssl
+ssl._create_default_https_context = ssl._create_unverified_context
+
+
 walletBitcoin = 0.0
 walletDollar = 100000.0
 firstrun = True
@@ -47,7 +51,7 @@ while True:
         walletBitcoin = walletBitcoin + 1
         walletDollar = walletDollar - currentPrice - getTransectionfee()
     showTotalNetWorth()
-    
+
     oldPrice = currentPrice
- 
+
     time.sleep(3)
